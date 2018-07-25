@@ -231,7 +231,7 @@
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
+                    <a href="#data" class="toc-h2 toc-link" data-title="data">data</a>
                   </li>
                   <li>
                     <a href="#response" class="toc-h2 toc-link" data-title="response">response</a>
@@ -245,7 +245,7 @@
                     <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#body-2" class="toc-h2 toc-link" data-title="Body">Body</a>
+                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
                   </li>
               </ul>
           </li>
@@ -288,8 +288,8 @@
 TODO</p>
 </blockquote>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://api.imvip.io:9001/api/login</code></p>
-<h3 id='body'>Body</h3>
+<p><code>POST http://api.imvip.io:9002/login</code></p>
+<h3 id='data'>data</h3>
 <table><thead>
 <tr>
 <th>變數</th>
@@ -330,6 +330,14 @@ TODO</p>
 </code></pre><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell tab-shell"><code>
 </code></pre><pre class="highlight javascript tab-javascript"><code>
+<span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://api.imvip.io:9002/login'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">username</span><span class="p">:</span> <span class="s1">'${username}'</span><span class="p">,</span>
+    <span class="na">password</span><span class="p">:</span> <span class="s1">'${password}'</span>
+  <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">access_token</span><span class="p">)</span>
+<span class="p">})</span>
+
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -339,7 +347,7 @@ TODO</p>
 <p>取得所有活動清單</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://api.imvip.io:9001/api/shop/${shop_id}/events</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>變數</th>
@@ -364,7 +372,7 @@ TODO</p>
 <p>店家發放點數給 User</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST http://api.imvip.io:9001/api/shop/${shop_id}/point/create</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
 <th>變數</th>
