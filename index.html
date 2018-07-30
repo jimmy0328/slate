@@ -273,7 +273,7 @@
 <pre class="highlight ruby tab-ruby"><code>
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 </code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://api.imvip.io:9002/login</code></p>
+<p><code>POST http://api.imvip.io:9902/login</code></p>
 <h3 id='data'>data</h3>
 <table><thead>
 <tr>
@@ -311,7 +311,7 @@
 <aside class="notice">
  請注意，access_token 在每一個 request 都必須放置在 header 一起送出，否則認證則會失敗
 </aside>
-<h1 id='60393335eb'>取得活動設定</h1><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://api.imvip.io:9002/login'</span><span class="p">,</span> <span class="p">{</span>
+<h1 id='60393335eb'>取得活動設定</h1><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://api.imvip.io:9902/login'</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">username</span><span class="p">:</span> <span class="s1">'${username}'</span><span class="p">,</span>
     <span class="na">password</span><span class="p">:</span> <span class="s1">'${password}'</span>
   <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -328,7 +328,7 @@
 </span></code></pre>
 <p>取得所有活動清單</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://api.imvip.io:9001/api/shop/${shop_id}/events</code></p>
+<p><code>GET http://api.imvip.io:9902/api/shop/${shop_id}/events</code></p>
 
 <table><thead>
 <tr>
@@ -367,7 +367,7 @@
 </span></code></pre>
 <p>店家發放點數給 User</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://api.imvip.io:9001/api/shop/point/create</code></p>
+<p><code>POST http://api.imvip.io:9902/api/shop/point/create</code></p>
 <h3 id='body'>Body</h3>
 <table><thead>
 <tr>
@@ -395,6 +395,20 @@
 <td>shopId</td>
 <td>xxxxxx</td>
 <td>店家UUID</td>
+</tr>
+</tbody></table>
+<h3 id='header-2'>HEADER</h3>
+<table><thead>
+<tr>
+<th>變數</th>
+<th>值</th>
+<th>範例</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>basic ${token}</td>
+<td>basic 3979723hjjhdshfdskjhfhkjsdfjkdkjf8y423</td>
 </tr>
 </tbody></table>
 
