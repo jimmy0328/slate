@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;ruby&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,7 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -221,7 +220,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#daindian-api" class="toc-h1 toc-link" data-title="Daindian API 介紹">Daindian API 介紹</a>
+            <a href="#imvip-api" class="toc-h1 toc-link" data-title="ImVIP API 介紹">ImVIP API 介紹</a>
           </li>
           <li>
             <a href="#be4b12af8a" class="toc-h1 toc-link" data-title="認證">認證</a>
@@ -244,7 +243,7 @@
                     <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
+                    <a href="#header" class="toc-h2 toc-link" data-title="HEADER">HEADER</a>
                   </li>
               </ul>
           </li>
@@ -253,14 +252,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#user" class="toc-h2 toc-link" data-title="手動發放點數給 user">手動發放點數給 user</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#c144c35281" class="toc-h1 toc-link" data-title="取得卷的類型">取得卷的類型</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#c144c35281-2" class="toc-h2 toc-link" data-title="取得卷的類型">取得卷的類型</a>
                   </li>
               </ul>
           </li>
@@ -273,7 +264,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='daindian-api'>Daindian API 介紹</h1>
+        <h1 id='imvip-api'>ImVIP API 介紹</h1>
 <p>這是 ImVIP API 使用文件手冊，開放給 POS 整合專用</p>
 <h1 id='be4b12af8a'>認證</h1>
 <blockquote>
@@ -329,7 +320,6 @@
 <span class="p">})</span>
 
 </code></pre><pre class="highlight ruby tab-ruby"><code>
-</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -339,7 +329,21 @@
 <p>取得所有活動清單</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://api.imvip.io:9001/api/shop/${shop_id}/events</code></p>
-<h3 id='body'>Body</h3>
+
+<table><thead>
+<tr>
+<th>變數</th>
+<th>值</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>shop_id</td>
+<td>${shop_id}</td>
+<td>店家UUID</td>
+</tr>
+</tbody></table>
+<h3 id='header'>HEADER</h3>
 <table><thead>
 <tr>
 <th>變數</th>
@@ -348,9 +352,9 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>shop_id</td>
-<td>${shop_id}</td>
-<td>http://api.imvip.io:9001/api/shop/xxxxxxx/events</td>
+<td>access_token</td>
+<td>basic ${token}</td>
+<td>basic 3979723hjjhdshfdskjhfhkjsdfjkdkjf8y423</td>
 </tr>
 </tbody></table>
 <h1 id='e02ae0fdd9'>發放點數</h1><h2 id='user'>手動發放點數給 user</h2><pre class="highlight ruby tab-ruby"><code>
@@ -363,47 +367,41 @@
 </span></code></pre>
 <p>店家發放點數給 User</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://api.imvip.io:9001/api/shop/${shop_id}/point/create</code></p>
-<h3 id='body-2'>Body</h3>
+<p><code>POST http://api.imvip.io:9001/api/shop/point/create</code></p>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>變數</th>
 <th>值</th>
-<th>範例</th>
+<th>說明</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>money</td>
 <td>1000</td>
-<td></td>
+<td>消費金額</td>
 </tr>
 <tr>
 <td>mobile</td>
 <td>091234567</td>
-<td></td>
+<td>手機號碼</td>
+</tr>
+<tr>
+<td>issuer</td>
+<td>staff1</td>
+<td>操作人員</td>
+</tr>
+<tr>
+<td>shopId</td>
+<td>xxxxxx</td>
+<td>店家UUID</td>
 </tr>
 </tbody></table>
-<h1 id='c144c35281'>取得卷的類型</h1><h2 id='c144c35281-2'>取得卷的類型</h2><pre class="highlight ruby tab-ruby"><code>
 
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre>
-<p>店家發放點數給 User</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET http://api.imvip.io:9001/api/shop/${shop_id}/events</code></p>
-<pre class="highlight ruby tab-ruby"><code></code></pre><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell tab-shell"><code>
-</code></pre><pre class="highlight javascript tab-javascript"><code>
-</code></pre><pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
